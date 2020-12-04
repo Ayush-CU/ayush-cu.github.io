@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular.min.js"></script>
+    <script src="product.js"></script>
+    <title>JSON with AJAX</title>
+    <link rel="stylesheet" href="ProductTable.css">
+    <div id="id01"></div>
+    <script>
+
+        //Time and Date function
+        function load()
+            {
+                let url=" http://time.jsontest.com ";
+                var request;
+                request=new XMLHttpRequest();
+                request.onreadystatechange=function()
+                {
+                    if(request.readyState==4)
+                    {
+                        var obj=JSON.parse(request.responseText);
+                        document.getElementById("date").innerHTML=obj.date;
+                        document.getElementById("time").innerHTML=obj.time;
+                    }
+                };
+                request.open("GET",url,true);
+                request.send();
+            }
+        </script> 
+
+</head>
+
+<body ng-app="myapp" ng-controller="myctrl">
+
+  <div id="header">
+		<h1><span class="off">Digital</span>Marketing</h1>
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="IndexProducts.html">Products</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="D1.html">Contact</a>
+            <a href="form.html">Sign Up</a>
+        </div>
+    </div>
+        
+          <table cellpadding="2" cellspacing="2" border="1">
+              <tr>
+                  <th>Index</th>
+                  <th>PRODUCT-ID</th>
+                  <th>NAME</th>
+                  <th>PRICE</th>
+                  <th>Time-Duration<br>(in-months)</th>
+                  <th>OPTIONS</th>
+              </tr>
+              <tr ng-repeat="product in listProducts">
+                  <td>{{$index}}</td>
+                  <td>{{product.id}}</td>
+                  <td>{{product.name}}</td>
+                  <td>{{product.price}}</td>
+                  <td>{{product.timeDuration}}</td>
+                  <td>
+                      <a href="#" ng-click="delete()">Delete</a> |
+                      <a href="#" ng-click="edit(product.id)">Edit</a>
+                  </td>
+              </tr>
+          </table>
+          <h3>Product Information</h3>
+          <table cellpadding="2" cellspacing="2" style="width: auto !important;">
+              <tr>
+                  <td>ID</td>
+                  <td><input type="text" ng-model="id"></td>
+              </tr>
+              <tr>
+                  <td>NAME</td>
+                  <td><input type="text" ng-model="name"></td>
+              </tr>
+              <tr>
+                  <td>PRICE</td>
+                  <td><input type="text" ng-model="price"></td>
+              </tr>
+              <tr>
+                  <td>Time-Duration</td>
+                  <td><input type="text" ng-model="timeDuration"></td>
+              </tr>
+              <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="button" value="ADD" ng-click="add()">
+                  <input type="button" value="SAVE" ng-click="save()"></td>
+              </tr>
+          </table>
+
+<div class="time">
+      Date:<span id="date"></span><br>
+      Time:<span id="time"></span><br>
+          <button type="button" onclick="load()">Load Information</button>
+</div>
+
+</body>
+</html>

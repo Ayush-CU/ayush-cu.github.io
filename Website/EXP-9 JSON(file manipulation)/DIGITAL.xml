@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Digital_Marketing_Members>	
+	<Members>
+		<SNO>1</SNO>
+		<Member_ID>101</Member_ID>
+		<Name>Abhishek</Name>
+		<Gender>Male</Gender>
+		<DOB>01/01/2000</DOB>
+		<Email_ID>Abhishek@gmail.com</Email_ID>
+		<Mobile>1111111111</Mobile>
+	</Members>
+	
+	<Members>
+		<SNO>2</SNO>
+		<Member_ID>102</Member_ID>
+		<Name>Aditya</Name>
+		<Gender>Male</Gender>
+		<DOB>02/02/2000</DOB>
+		<Email_ID>Aditya@gmail.com</Email_ID>
+		<Mobile>2222222222</Mobile>
+	</Members>
+	
+	<Members>
+		<SNO>3</SNO>
+		<Member_ID>103</Member_ID>
+		<Name>Priyanka</Name>
+		<Gender>Female</Gender>
+		<DOB>03/03/2000</DOB>
+		<Email_ID>Priyanka@gmail.com</Email_ID>
+		<Mobile>3333333333</Mobile>
+	</Members>
+	
+	<Members>
+		<SNO>4</SNO>
+		<Member_ID>104</Member_ID>
+		<Name>Manish</Name>
+		<Gender>Male</Gender>
+		<DOB>04/04/2000</DOB>
+		<Email_ID>Manish@gmail.com</Email_ID>
+		<Mobile>4444444444</Mobile>
+	</Members>
+	
+	<Members>
+		<SNO>5</SNO>
+		<Member_ID>105</Member_ID>
+		<Name>Neha</Name>
+		<Gender>Female</Gender>
+		<DOB>05/05/2000</DOB>
+		<Email_ID>Neha@gmail.com</Email_ID>
+		<Mobile>5555555555</Mobile>
+	</Members>
+
+</Digital_Marketing_Members>

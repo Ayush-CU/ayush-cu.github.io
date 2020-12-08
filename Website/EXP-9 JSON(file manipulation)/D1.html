@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<style>
+    /*table,th,td
+    {
+     border:1px solid red;
+    }
+    th,td{
+        padding: 5px;
+    }*/
+            table
+            {
+                width:100% !important;}
+    		table,th,td
+            {
+                text-align:center;
+                border:2px solid black;
+                text-align:center;
+            }
+            td,th
+            {
+                font-family: "Lucida Console", Courier, monospace;
+                font-size:larger;
+                padding:20px;
+
+            }
+</style> 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM PARSER</title>
+</head>
+<body>
+    <h1>Client Details</h1>
+    <button type="button" onclick="loadXML()">Get Client Details</button>
+    <br><br>
+    <h1><center>MEMBERS DETAILS</center> </h1>
+    <table id="demo"></table>
+    <script>
+        function loadXML()
+        {
+            var xhttp=new XMLHttpRequest();
+            xhttp.onreadystatechange=function()
+            {
+                if(this.readyState==4&&this.status==200)
+                {
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET","DIGITAL.xml",false);
+            xhttp.send();
+        }
+        function myFunction(xml)
+        {
+            var i;
+            var xmlDoc=xml.responseXML;
+            var t="<tr><th>SNO</th><th>Member_ID</th></tr>";
+            var x=xmlDoc.getElementsByTagName("Members");
+            for(i=0;i<x.length;i++)
+            {
+                t +="<tr><td>" +
+                x[i].getElementsByTagName("SNO")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                x[i].getElementsByTagName("Member_ID")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+            /*    x[i].getElementsByTagName("Name")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+                x[i].getElementsByTagName("Gender")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+                x[i].getElementsByTagName("DOB")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+                x[i].getElementsByTagName("Email_ID")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+                x[i].getElementsByTagName("Mobile")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+                */ }
+            document.getElementById("demo").innerHTML=t;
+        }
+    </script>
+
+</body>
+</html>

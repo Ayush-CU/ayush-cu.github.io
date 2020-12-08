@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <script src="filter_app.js"></script>
+    <link href="ProductTable.css" rel="stylesheet">
+</head>
+<body ng-app="MyApp">
+
+    <div id="header">
+		<h1><span class="off">Digital</span>Marketing</h1>
+        <div id="links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="IndexProducts.html">Products</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="D1.html">Contact</a>
+            <a href="form.html">Sign Up</a>
+        </div>
+    </div>
+
+    
+    <div ng-controller="MyCtrl">
+        Rows to Display:<input type="number" step="1" min="0" max="4" ng-model="rowlimit" />
+        <br \>
+        <br \>
+
+        Search:<input type="text" placeholder="Seach Employees" ng-model="Search" />
+        <br \>
+        <br \>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Gender</th>
+                <th>Salary(number)</th>
+                <th>Salary(currency)</th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:rowlimit |filter:Search ">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dob | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:0}}</td>
+                    <td> {{employee.salary | currency:"&#8377;":0 }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
